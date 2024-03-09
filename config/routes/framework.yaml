@@ -8,7 +8,42 @@ profesores_index:
     path: /profesores
     controller: App\Controller\ProfesoresController::index
 
+profesores_nuevo:
+    path: /profesores/nuevo
+    controller: App\Controller\ProfesoresController::nuevo
+
+profesores_detalle:
+    path: /profesores/{id}
+    controller: App\Controller\ProfesoresController::detalle
+
+profesores_editar:
+    path: /profesores/{id}/editar
+    controller: App\Controller\ProfesoresController::editar
+
+profesores_eliminar:
+    path: /profesores/{id}
+    controller: App\Controller\ProfesoresController::eliminar
+    methods: DELETE
+
+
+
 departamentos_index:
     path: /departamentos
     controller: App\Controller\DepartamentosController::index
 
+departamentos_nuevo:
+    path: /departamentos/nuevo
+    controller: App\Controller\DepartamentosController::nuevo
+
+departamentos_detalle:
+    path: /departamentos/{id}
+    controller: App\Controller\DepartamentosController::detalle
+
+departamentos_editar:
+    path: /departamentos/{id}/editar
+    controller: App\Controller\DepartamentosController::editar
+
+departamentos_eliminar:
+    path: /departamentos/{id}
+    controller: App\Controller\DepartamentosController::eliminar
+    methods: DELETE

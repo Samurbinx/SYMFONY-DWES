@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Profesores;
+use App\Form\ProfesoresType;
 use App\Repository\ProfesoresRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class ProfesoresController extends AbstractController
 {
@@ -41,6 +43,8 @@ class ProfesoresController extends AbstractController
         ]);
     }
 
+    
+
     #[Route('/profesores/{id}', name: 'profesores_detalle', methods: ['GET'])]
     public function detalle(Profesores $profesor): Response
     {
@@ -56,7 +60,8 @@ class ProfesoresController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
 
             return $this->redirectToRoute('profesores_index');
         }
@@ -70,11 +75,9 @@ class ProfesoresController extends AbstractController
     #[Route('/profesores/{id}', name: 'profesores_eliminar', methods: ['DELETE'])]
     public function eliminar(Request $request, Profesores $profesor): Response
     {
-        if ($this->isCsrfTokenValid('eliminar' . $profesor->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($profesor);
-            $entityManager->flush();
-        }
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($profesor);
+        $entityManager->flush();
 
         return $this->redirectToRoute('profesores_index');
     }
