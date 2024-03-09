@@ -1,0 +1,27 @@
+{# templates/profesores/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de Profesores{% endblock %}
+
+{% block content %}
+    <h1>Lista de Profesores</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profesor in profesores %}
+                <tr>
+                    <td>{{ profesor.id }}</td>
+                    <td>{{ profesor.nombre }}</td>
+                    <td>{{ profesor.apellido }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

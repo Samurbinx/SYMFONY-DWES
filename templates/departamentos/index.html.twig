@@ -1,0 +1,25 @@
+{# templates/departamentos/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de Departamentos{% endblock %}
+
+{% block content %}
+    <h1>Lista de Departamentos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for departamento in departamentos %}
+                <tr>
+                    <td>{{ departamento.id }}</td>
+                    <td>{{ departamento.nombre }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

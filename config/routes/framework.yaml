@@ -2,3 +2,13 @@ when@dev:
     _errors:
         resource: '@FrameworkBundle/Resources/config/routing/errors.xml'
         prefix: /_error
+
+
+profesores_index:
+    path: /profesores
+    controller: App\Controller\ProfesoresController::index
+
+departamentos_index:
+    path: /departamentos
+    controller: App\Controller\DepartamentosController::index
+
